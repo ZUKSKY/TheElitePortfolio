@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, 
+body {
+    width: 100%;
+    height: 100%;
+    font-family: "Neue Montreal", sans-serif; /* Fallback font */
+}
+
+a {
+    text-decoration: none;
+    color: #cdc6be;
+}
+
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('assets/font/NeueMontreal-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'Canopee';
+    src: url('assets/font/Canopee-Regular.otf');
+}
+
+
+
+.website-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: #cdc6be;
+    padding: 2em;
+}
+
+.hero-img {
+    margin-top: 4em;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #141412;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5em 2em;
+    color: #cdc6be;
+    mix-blend-mode: difference;
+    z-index: 2;
+}
+
+nav > div {
+    flex: 1;
+}
+
+.logo {
+    text-align: center;
+    font-family: 'Canopee';
+}
+
+.logo a {
+    text-decoration: none;
+    font-size: 30px;
+    color: #cdc6be;
+}
+
+.toggle-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.burger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.75em 2em 1.5em 2em;
+    background: rgba(255, 255, 255, 0);
+    outline: none;
+    border: none;
+    width: 28px;
+    height: 20px;
+    transition: all 250ms ease-out;
+    cursor: pointer;
+}
+
+.burger:before,
+.burger:after{
+    content: "";
+    width: 40px;
+    height: 2px;
+    position: absolute;
+    background: #cdc6be;
+    transition: all 250ms ease-out;
+    will-change: transform;
+}
+
+.burger:before{
+    transform: translateY(-3px);
+}
+
+.burger:after {
+    transform: translateY(3px);
+}
+
+.active.burger:before{
+    transform: translateY(0) rotate(45deg);
+}
+
+.active.burger:after{
+    transform: translateY(0) rotate(-45deg);
+}
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background: #141412;
+    /*clip-path: polygon(0 0, 100% 0,100% 0,0 0);*/
+    will-change: transform;
+}
+
+.overlay-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-item {
+    display: flex;
+    cursor: pointer;
+    /*clip-path: polygon(0 0, 100% 0,100% 100%,0 100%);*/
+}
+
+.menu-item p {
+    position: relative;
+    text-align: center;
+    font-family: "Canopee";
+    font-size: 15vw;
+    line-height: 80%;
+    will-change: transform;
+    transition: letter-spacing 0.3s;
+}
+
+.menu-item p:hover {
+    letter-spacing: 0.075em;
+}
+
+.menu-item p#active::after {
+    content: "";
+    position: absolute;
+    top: 45%;
+    left: 0;
+    transform: translateY(-50%);
+    background-color: #c03613;
+    width: 0%;
+    height: 12px;
+}
+
+.sub-nav{
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5em;
+    opacity: 0;
+}
+
+.sub-nav p{
+    font-family: "Canopee";
+    font-size:20px;
+    color: #cdc6be;
+}
+
+@media(max-width: 900px) {
+    .logo a {
+        font-size: 20px;
+    }
+}
